@@ -1,0 +1,23 @@
+# docker compose up -d --build   (needs a .env with YAPPER_BOT_TOKEN, see .env.example)
+services:
+  bot:
+    build: .
+    image: yaphook-bot:latest
+    container_name: yaphook-bot
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # Fixed inside the container so it always lands on the volume, whatever .env says.
+      YAPHOOK_DATA_FILE: /app/data/yaphook.json
+    volumes:
+      - yaphook-data:/app/data
+    # Saving on shutdown is instant, but give in-flight replies a moment.
+    stop_grace_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+
+volumes:
+  yaphook-data:

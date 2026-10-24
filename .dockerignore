@@ -1,0 +1,15 @@
+# Keep secrets, local data and dev files out of the image. The token comes in at runtime (env_file / -e).
+.env
+.env.*
+!.env.example
+data/
+.git/
+.gitignore
+node_modules/
+YapinAssets/
+test/
+Dockerfile
+docker-compose.yml
+.dockerignore
+*.md
+.vscode/

@@ -1,0 +1,15 @@
+{
+  "name": "yaphook-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The YapHook companion bot for Yapin': restore messages, buttons, reaction roles, welcomers and triggers",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "test": "node test/smoke.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
